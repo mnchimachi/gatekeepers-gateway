@@ -8,7 +8,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <img src={logo} alt="Martins Automações" className="h-14 w-auto mb-4" />
+            <span className="inline-flex items-center rounded-lg bg-white px-4 py-3 mb-4 shadow-card">
+              <img src={logo} alt="Martins Automações" className="h-12 w-auto" />
+            </span>
             <p className="text-sm leading-relaxed max-w-md">
               Especialistas em portões eletrônicos em Leme-SP e região.
               Venda, instalação, manutenção e conserto com atendimento 24 horas.

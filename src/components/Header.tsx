@@ -16,8 +16,10 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-navy-deep/95 backdrop-blur border-b border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <img src={logo} alt="Martins Automações" className="h-12 w-auto" />
+          <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+            <span className="inline-flex items-center rounded-lg bg-white px-3 py-2 shadow-elegant">
+              <img src={logo} alt="Martins Automações" className="h-10 w-auto" />
+            </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             {links.map((l) => (
