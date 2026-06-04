@@ -10,7 +10,16 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
+import "@fontsource/montserrat/800.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 function NotFoundComponent() {
   return (
@@ -77,21 +86,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Martins Automações — Portões Eletrônicos em Leme-SP" },
+      { name: "description", content: "Especialistas em portões eletrônicos em Leme-SP e região. Venda, instalação, manutenção e conserto com atendimento 24h." },
+      { property: "og:title", content: "Martins Automações — Portões Eletrônicos" },
+      { property: "og:description", content: "Venda, instalação e manutenção de portões eletrônicos em Leme-SP. Atendimento 24 horas." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Martins Automações" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Martins Automações",
+        description: "Especialistas em portões eletrônicos — venda, instalação, manutenção e conserto.",
+        telephone: "+55-19-98828-3830",
+        areaServed: "Leme-SP e região",
+        openingHours: "Mo-Su 00:00-23:59",
+        address: { "@type": "PostalAddress", addressLocality: "Leme", addressRegion: "SP", addressCountry: "BR" },
+      }),
+    }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -118,8 +136,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        <WhatsAppFloat />
+      </div>
     </QueryClientProvider>
   );
 }
