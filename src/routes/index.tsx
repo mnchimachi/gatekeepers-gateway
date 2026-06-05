@@ -140,7 +140,6 @@ function Home() {
                 "Atendimento emergencial 24 horas",
                 "Orçamento gratuito e sem compromisso",
                 "Peças originais com garantia",
-                "Profissionais uniformizados e treinados",
               ].map((i) => (
                 <li key={i} className="flex items-start gap-3 text-foreground">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-gradient shrink-0" />
